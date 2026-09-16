@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hack Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="top-bar">
+    <h1>Hack Tracker <span class="subtitle">Global cyberattack monitor</span></h1>
+    <input id="search-input" type="text" placeholder="Search attacker, target, type, reason..." />
+    <label id="window-size-control">Show last
+      <input id="window-size-input" type="number" min="20" max="200" step="10" />
+      incidents
+    </label>
+    <button id="refresh-btn">Refresh Now</button>
+  </header>
+
+  <div id="ticker-band">
+    <div id="ticker-track"></div>
+  </div>
+
+  <section id="search-results" class="hidden">
+    <div class="search-results-header">
+      <span id="search-results-count"></span>
+      <button id="close-search">Close</button>
+    </div>
+    <div id="search-results-list"></div>
+  </section>
+
+  <main id="tables">
+    <section class="table-panel">
+      <h2>Incident <span class="legend-swatch ai-related"></span> <span class="scope">AI-related rows highlighted</span></h2>
+      <div class="table-scroll">
+        <table id="incident-table">
+          <thead>
+            <tr>
+              <th>Time</th><th>Attacker / Group / Model</th><th>Model Creator</th><th>Deployed By</th><th>Location</th><th>Target</th><th>Attack Type</th><th>Reason</th><th>Source</th><th>Details</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="table-panel">
+      <h2>Incident Warning</h2>
+      <div class="table-scroll">
+        <table id="warning-table">
+          <thead>
+            <tr>
+              <th>Time</th><th>Threat / Subject</th><th>Warning Source</th><th>Location</th><th>At-Risk Target</th><th>Threat Type</th><th>Context</th><th>Source</th><th>Details</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <section id="stats-section">
+    <h2>Trends &amp; Statistics</h2>
+    <div class="stat-tiles" id="stat-tiles"></div>
+    <div class="stats-grid">
+      <div class="stats-card">
+        <h3>Top Attack Types</h3>
+        <div class="bar-list" id="stat-attack-types"></div>
+      </div>
+      <div class="stats-card">
+        <h3>Top Locations</h3>
+        <div class="bar-list" id="stat-locations"></div>
+      </div>
+      <div class="stats-card">
+        <h3>Top Threat Actors (Human)</h3>
+        <div class="bar-list" id="stat-actors"></div>
+      </div>
+      <div class="stats-card">
+        <h3>Top AI Models Involved</h3>
+        <div class="bar-list" id="stat-models"></div>
+      </div>
+      <div class="stats-card">
+        <h3>Top Agent Deployers</h3>
+        <div class="bar-list" id="stat-deployers"></div>
+      </div>
+      <div class="stats-card">
+        <h3>Top Motives</h3>
+        <div class="bar-list" id="stat-reasons"></div>
+      </div>
+    </div>
+    <div class="stats-card trend-card">
+      <h3>14-Day Trend</h3>
+      <div id="stat-trend"></div>
+    </div>
+  </section>
+
+  <section id="sources-section">
+    <h2>Data Sources <span class="scope" id="sources-count"></span></h2>
+    <div class="sources-columns">
+      <div class="sources-column">
+        <h3>RSS / News Feeds</h3>
+        <ul id="rss-sources-list"></ul>
+      </div>
+      <div class="sources-column">
+        <h3>Structured APIs</h3>
+        <ul id="api-sources-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="archive-section">
+    <h2>Archives</h2>
+    <div class="archive-columns">
+      <div class="archive-column">
+        <h3>Incident Archives</h3>
+        <ul id="incident-archive-list"></ul>
+      </div>
+      <div class="archive-column">
+        <h3>Incident Warning Archives</h3>
+        <ul id="warning-archive-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
